@@ -42,6 +42,7 @@
             dgvContatos = new DataGridView();
             lblID = new Label();
             textBox1 = new TextBox();
+            lblTeste = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
             // 
@@ -165,11 +166,21 @@
             textBox1.Size = new Size(202, 23);
             textBox1.TabIndex = 13;
             // 
+            // lblTeste
+            // 
+            lblTeste.AutoSize = true;
+            lblTeste.Location = new Point(380, 325);
+            lblTeste.Name = "lblTeste";
+            lblTeste.Size = new Size(38, 15);
+            lblTeste.TabIndex = 14;
+            lblTeste.Text = "label1";
+            // 
             // frmCadastroContato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 419);
+            Controls.Add(lblTeste);
             Controls.Add(textBox1);
             Controls.Add(lblID);
             Controls.Add(dgvContatos);
@@ -186,6 +197,7 @@
             Controls.Add(lblTitulo);
             Name = "frmCadastroContato";
             Text = "Tela Cadastro de Contato";
+            Load += frmCadastroContato_Load;
             ((System.ComponentModel.ISupportInitialize)dgvContatos).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -207,5 +219,6 @@
         private DataGridView dgvContatos;
         private Label lblID;
         private TextBox textBox1;
+        private Label lblTeste;
     }
 }
