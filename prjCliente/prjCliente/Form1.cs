@@ -31,6 +31,14 @@ namespace prjCliente
                 return;
             }
 
+            if (!Cliente.emailValido(txtEmail.Text))
+            {
+                MessageBox.Show("O email informado é inválido.", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtEmail.Focus();
+                return;
+            }
+
+
             Cliente.Cli_name = txtNome.Text;
             Cliente.Cli_email = txtEmail.Text;
             Cliente.Cli_celular = txtCelular.Text;

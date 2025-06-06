@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCliente\\prjCliente\\prjCliente.csproj": {}
+    "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCliente\\prjCliente\\prjCliente.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCliente\\prjCliente\\prjCliente.csproj": {
+    "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCliente\\prjCliente\\prjCliente.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCliente\\prjCliente\\prjCliente.csproj",
+        "projectUniqueName": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCliente\\prjCliente\\prjCliente.csproj",
         "projectName": "prjCliente",
-        "projectPath": "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCliente\\prjCliente\\prjCliente.csproj",
+        "projectPath": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCliente\\prjCliente\\prjCliente.csproj",
         "packagesPath": "C:\\Users\\hjoao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCliente\\prjCliente\\obj\\",
+        "outputPath": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCliente\\prjCliente\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

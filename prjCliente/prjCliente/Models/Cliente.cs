@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace prjCliente.Models
@@ -36,6 +37,13 @@ namespace prjCliente.Models
         public void Pesquisar()
         {
 
+        }
+
+        public bool emailValido(string email)
+        {
+            Regex emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase);
+
+            return emailRegex.IsMatch(email);
         }
     }
 }

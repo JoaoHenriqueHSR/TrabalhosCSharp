@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("prjCliente")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d89afd38c4ab0e0d3b062a2368accca6f7812fdc")]
 [assembly: System.Reflection.AssemblyProductAttribute("prjCliente")]
 [assembly: System.Reflection.AssemblyTitleAttribute("prjCliente")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
