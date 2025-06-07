@@ -41,7 +41,7 @@
             btnLimpar = new Button();
             dgvContatos = new DataGridView();
             lblID = new Label();
-            textBox1 = new TextBox();
+            txtId = new TextBox();
             lblTeste = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
@@ -113,6 +113,7 @@
             btnInserir.TabIndex = 7;
             btnInserir.Text = "Inserir";
             btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
             // 
             // btnAtualizar
             // 
@@ -122,6 +123,7 @@
             btnAtualizar.TabIndex = 8;
             btnAtualizar.Text = "Atualizar";
             btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnExcluir
             // 
@@ -131,6 +133,7 @@
             btnExcluir.TabIndex = 9;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnLimpar
             // 
@@ -140,14 +143,16 @@
             btnLimpar.TabIndex = 10;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
+            btnLimpar.Click += btnLimpar_Click;
             // 
             // dgvContatos
             // 
             dgvContatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvContatos.Location = new Point(512, 118);
+            dgvContatos.Location = new Point(48, 422);
             dgvContatos.Name = "dgvContatos";
-            dgvContatos.Size = new Size(240, 150);
+            dgvContatos.Size = new Size(704, 150);
             dgvContatos.TabIndex = 11;
+            dgvContatos.CellClick += dgvContatos_CellClick;
             // 
             // lblID
             // 
@@ -158,13 +163,13 @@
             lblID.TabIndex = 12;
             lblID.Text = "ID";
             // 
-            // textBox1
+            // txtId
             // 
-            textBox1.Location = new Point(160, 95);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(202, 23);
-            textBox1.TabIndex = 13;
+            txtId.Location = new Point(160, 95);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(202, 23);
+            txtId.TabIndex = 13;
             // 
             // lblTeste
             // 
@@ -179,9 +184,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 419);
+            ClientSize = new Size(800, 602);
             Controls.Add(lblTeste);
-            Controls.Add(textBox1);
+            Controls.Add(txtId);
             Controls.Add(lblID);
             Controls.Add(dgvContatos);
             Controls.Add(btnLimpar);
@@ -218,7 +223,7 @@
         private Button btnLimpar;
         private DataGridView dgvContatos;
         private Label lblID;
-        private TextBox textBox1;
+        private TextBox txtId;
         private Label lblTeste;
     }
 }

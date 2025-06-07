@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("prjCRUD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcb3f083d093f76583fd9709c138b7d9b3ead73c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d98a38f996af4457193ab129a6865dfda3dbfd54")]
 [assembly: System.Reflection.AssemblyProductAttribute("prjCRUD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("prjCRUD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
