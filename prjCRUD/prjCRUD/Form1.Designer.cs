@@ -31,7 +31,6 @@
             lblTitulo = new Label();
             txtNome = new TextBox();
             txtEmail = new TextBox();
-            txtCelular = new TextBox();
             lblNome = new Label();
             lblEmail = new Label();
             lblCelular = new Label();
@@ -43,6 +42,10 @@
             lblID = new Label();
             txtId = new TextBox();
             lblTeste = new Label();
+            btnRecarregar = new Button();
+            txtLimite = new TextBox();
+            txtCelular = new MaskedTextBox();
+            lblDadosCarregados = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
             // 
@@ -51,7 +54,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.HotTrack;
-            lblTitulo.Location = new Point(256, 29);
+            lblTitulo.Location = new Point(266, 29);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(269, 37);
             lblTitulo.TabIndex = 0;
@@ -59,29 +62,22 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(160, 153);
+            txtNome.Location = new Point(333, 178);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(202, 23);
             txtNome.TabIndex = 1;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(160, 211);
+            txtEmail.Location = new Point(333, 236);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(202, 23);
             txtEmail.TabIndex = 2;
             // 
-            // txtCelular
-            // 
-            txtCelular.Location = new Point(160, 269);
-            txtCelular.Name = "txtCelular";
-            txtCelular.Size = new Size(202, 23);
-            txtCelular.TabIndex = 3;
-            // 
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Location = new Point(48, 156);
+            lblNome.Location = new Point(221, 181);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(43, 15);
             lblNome.TabIndex = 4;
@@ -90,7 +86,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(48, 214);
+            lblEmail.Location = new Point(221, 239);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(39, 15);
             lblEmail.TabIndex = 5;
@@ -99,7 +95,7 @@
             // lblCelular
             // 
             lblCelular.AutoSize = true;
-            lblCelular.Location = new Point(48, 272);
+            lblCelular.Location = new Point(221, 297);
             lblCelular.Name = "lblCelular";
             lblCelular.Size = new Size(44, 15);
             lblCelular.TabIndex = 6;
@@ -148,16 +144,16 @@
             // dgvContatos
             // 
             dgvContatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvContatos.Location = new Point(48, 422);
+            dgvContatos.Location = new Point(48, 396);
             dgvContatos.Name = "dgvContatos";
-            dgvContatos.Size = new Size(704, 150);
+            dgvContatos.Size = new Size(704, 194);
             dgvContatos.TabIndex = 11;
             dgvContatos.CellClick += dgvContatos_CellClick;
             // 
             // lblID
             // 
             lblID.AutoSize = true;
-            lblID.Location = new Point(54, 98);
+            lblID.Location = new Point(227, 123);
             lblID.Name = "lblID";
             lblID.Size = new Size(18, 15);
             lblID.TabIndex = 12;
@@ -165,7 +161,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(160, 95);
+            txtId.Location = new Point(333, 120);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(202, 23);
@@ -174,17 +170,55 @@
             // lblTeste
             // 
             lblTeste.AutoSize = true;
-            lblTeste.Location = new Point(380, 325);
+            lblTeste.Location = new Point(275, 81);
             lblTeste.Name = "lblTeste";
-            lblTeste.Size = new Size(38, 15);
+            lblTeste.Size = new Size(54, 15);
             lblTeste.TabIndex = 14;
-            lblTeste.Text = "label1";
+            lblTeste.Text = "Conexão";
+            // 
+            // btnRecarregar
+            // 
+            btnRecarregar.Location = new Point(677, 338);
+            btnRecarregar.Name = "btnRecarregar";
+            btnRecarregar.Size = new Size(75, 23);
+            btnRecarregar.TabIndex = 15;
+            btnRecarregar.Text = "Recarregar";
+            btnRecarregar.UseVisualStyleBackColor = true;
+            btnRecarregar.Click += btnRecarregar_Click;
+            // 
+            // txtLimite
+            // 
+            txtLimite.Location = new Point(677, 367);
+            txtLimite.Name = "txtLimite";
+            txtLimite.Size = new Size(75, 23);
+            txtLimite.TabIndex = 16;
+            // 
+            // txtCelular
+            // 
+            txtCelular.Location = new Point(333, 294);
+            txtCelular.Mask = "(99) 00000-0000";
+            txtCelular.Name = "txtCelular";
+            txtCelular.Size = new Size(202, 23);
+            txtCelular.TabIndex = 17;
+            // 
+            // lblDadosCarregados
+            // 
+            lblDadosCarregados.AutoSize = true;
+            lblDadosCarregados.Location = new Point(547, 375);
+            lblDadosCarregados.Name = "lblDadosCarregados";
+            lblDadosCarregados.Size = new Size(124, 15);
+            lblDadosCarregados.TabIndex = 18;
+            lblDadosCarregados.Text = "Quantidade de Dados:";
             // 
             // frmCadastroContato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 602);
+            Controls.Add(lblDadosCarregados);
+            Controls.Add(txtCelular);
+            Controls.Add(txtLimite);
+            Controls.Add(btnRecarregar);
             Controls.Add(lblTeste);
             Controls.Add(txtId);
             Controls.Add(lblID);
@@ -196,12 +230,12 @@
             Controls.Add(lblCelular);
             Controls.Add(lblEmail);
             Controls.Add(lblNome);
-            Controls.Add(txtCelular);
             Controls.Add(txtEmail);
             Controls.Add(txtNome);
             Controls.Add(lblTitulo);
             Name = "frmCadastroContato";
             Text = "Tela Cadastro de Contato";
+            FormClosing += frmCadastroContato_FormClosing;
             Load += frmCadastroContato_Load;
             ((System.ComponentModel.ISupportInitialize)dgvContatos).EndInit();
             ResumeLayout(false);
@@ -213,7 +247,6 @@
         private Label lblTitulo;
         private TextBox txtNome;
         private TextBox txtEmail;
-        private TextBox txtCelular;
         private Label lblNome;
         private Label lblEmail;
         private Label lblCelular;
@@ -225,5 +258,9 @@
         private Label lblID;
         private TextBox txtId;
         private Label lblTeste;
+        private Button btnRecarregar;
+        private TextBox txtLimite;
+        private MaskedTextBox txtCelular;
+        private Label lblDadosCarregados;
     }
 }

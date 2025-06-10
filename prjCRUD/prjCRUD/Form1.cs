@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 
 namespace prjCRUD
@@ -13,39 +14,38 @@ namespace prjCRUD
         const string servidor = "localhost";
         const string bancoDados = "bdContato";
         const string usuario = "root";
-        const string senha = "aluno";
+        const string senha = "12345";
 
-        string conexaoBanco =
-            $"server={servidor};" +
-            $"user id={usuario};" +
-            $"database={bancoDados};" +
-            $"password={senha};";
+        string conexaoBanco = $"server={servidor}; user id={usuario}; database={bancoDados}; password={senha};";
 
         private void frmCadastroContato_Load(object sender, EventArgs e)
         {
             try
             {
-                using (MySqlConnection conexao = new MySqlConnection(conexaoBanco))
+                using (MySqlConnection conexao = new MySqlConnection(conexaoBanco))// aqui é instanciado um objeto do tipo MySlqConnection, tendo como parametro a variavel com os dados atribuidos anteriomente using(){} nesse contexto, cria um escopo de execução da conexão com MySql e quando terminado, ele se livra desse espaço na memoria, executando automaticamente o metodo Dispose(), que fecha a conexão com o banco de dados, liberando os recursos utilizados por ele.
                 {
                     conexao.Open();
                     conexao.Close();
 
                     lblTeste.Text = $"A conexão com {bancoDados} foi realizada com sucesso!";
+                    lblTeste.ForeColor = Color.Green;
                 }
             }
             catch (MySqlException ex)
             {
                 lblTeste.Text = "Falha na conexão";
                 MessageBox.Show("Erro ao conectar ao banco de dados" + ex.Message);
+                lblTeste.ForeColor = Color.Red;
             }
             catch (Exception ex)
             {
                 lblTeste.Text = "Erro desconhecido";
                 MessageBox.Show("Ocorreu um erro: " + ex.Message);
+                lblTeste.ForeColor = Color.Red;
             }
-        }
+        }//ESTABELECE A CONECÇÃO COM O BANCO DE DADOS E CARREGA OS CONTATOS
 
-        private void btnInserir_Click(object sender, EventArgs e)
+        private void btnInserir_Click(object sender, EventArgs e)//INSERE OS VALORES NO BANCO DE DADOS
         {
             // 1. Obter os dados das TextBoxes  
             string nome = txtNome.Text.Trim();
@@ -59,6 +59,15 @@ namespace prjCRUD
                 return;
             }
 
+            Regex emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase);
+
+            bool isEmail=emailRegex.IsMatch(email);
+
+            if (!isEmail) { 
+                MessageBox.Show("Por favor, insira um email válido.", "Email Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // 3. Criar a consulta SQL INSERT  
             string query = "INSERT INTO Contato (ContatoNome, ContatoCelular, ContatoEmail) VALUES (@Nome, @Celular, @Email)";
 
@@ -68,17 +77,19 @@ namespace prjCRUD
                 {
                     conexao.Open();
 
-                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))//MySqlCommand precisa de dois parametros, o primeiro é a instrução sql, e o segundo é para onde enviar essa instrução
                     {
+                        // Adiciona os parâmetros com os valores das TextBoxes
                         comando.Parameters.AddWithValue("@Nome", nome);
                         comando.Parameters.AddWithValue("@Celular", celular);
                         comando.Parameters.AddWithValue("@Email", email);
 
-                        int resultado = comando.ExecuteNonQuery();
+                        // Executa a consulta e obtém o número de linhas afetadas
+                        int resultado = comando.ExecuteNonQuery();//parecido com os metodos de requisição de api, retornando o numero de linhas afetada, se for 0 ou menor, não foi inserido nada no banco de dados
 
                         if (resultado > 0)
                         {
-                            MessageBox.Show("Contato inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Contato inserido com sucesso!\nLinhas criadas: {resultado}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             CarregarContatos(); // Atualiza DataGridView  
                             LimparCampos(); // Limpa os campos para uma nova inserção  
                         }
@@ -102,14 +113,20 @@ namespace prjCRUD
                 using (MySqlConnection conexao = new MySqlConnection(conexaoBanco))
                 {
                     conexao.Open();
-                    string query = "SELECT Contatoid, ContatoNome, ContatoCelular, ContatoEmail FROM Contato";
+                    int limite;
+                    int.TryParse(txtLimite.Text.Trim(), out limite);
+
+                    limite = limite <= 0 ? 5 : limite;
+                    string query = $"SELECT * FROM Contato LIMIT {limite}";
 
                     using (MySqlCommand comando = new MySqlCommand(query, conexao))
-                    using (MySqlDataAdapter adaptador = new MySqlDataAdapter(comando))
                     {
-                        System.Data.DataTable tabela = new System.Data.DataTable();
-                        adaptador.Fill(tabela);
-                        dgvContatos.DataSource = tabela;
+                        using (MySqlDataAdapter adaptador = new MySqlDataAdapter(comando))
+                        {
+                            System.Data.DataTable tabela = new System.Data.DataTable();
+                            adaptador.Fill(tabela);
+                            dgvContatos.DataSource = tabela;
+                        }
                     }
                 }
             }
@@ -155,7 +172,7 @@ namespace prjCRUD
 
                             if (resultado > 0)
                             {
-                                MessageBox.Show("Contato atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show($"Contato atualizado com sucesso!\nLinhas alteradas: {resultado}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 CarregarContatos(); // Atualiza DataGridView
                                 LimparCampos(); // Limpa os campos para uma nova edição
                             }
@@ -187,10 +204,9 @@ namespace prjCRUD
             }
 
             // 3. Confirmar a exclusão
-            DialogResult confirmacao = MessageBox.Show("Tem certeza que deseja excluir este contato?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult confirmacao = MessageBox.Show($"Tem certeza que deseja excluir o contato {id}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (confirmacao == DialogResult.No)
-                return;
+            if (confirmacao == DialogResult.No) return;
 
             // 4. Criar a consulta SQL DELETE
             string query = "DELETE FROM Contato WHERE Contatoid = @Id";
@@ -209,7 +225,7 @@ namespace prjCRUD
 
                         if (resultado > 0)
                         {
-                            MessageBox.Show("Contato excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Contato excluído com sucesso!\nLinhas excluidas: {resultado}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             CarregarContatos(); // Atualiza o DataGridView
                             LimparCampos(); // Limpa os campos
                         }
@@ -251,6 +267,20 @@ namespace prjCRUD
                 txtEmail.Text = linhaSelecionada.Cells["ContatoEmail"].Value.ToString();
             }
 
+        }
+
+        private void btnRecarregar_Click(object sender, EventArgs e)
+        {
+            CarregarContatos();
+        }
+
+        private void frmCadastroContato_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Deseja realmente fechar o programa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCRUD\\",
+  "WorkspaceRootPath": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCRUD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{84B181B2-0924-4D89-95F0-B5BB2792C1C0}|prjCRUD\\prjCRUD.csproj|c:\\users\\hjoao\\desktop\\trabalhosc#\\prjcrud\\prjcrud\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{84B181B2-0924-4D89-95F0-B5BB2792C1C0}|prjCRUD\\prjCRUD.csproj|c:\\users\\hjoao\\desktop\\trabalhoscsharp\\prjcrud\\prjcrud\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{84B181B2-0924-4D89-95F0-B5BB2792C1C0}|prjCRUD\\prjCRUD.csproj|solutionrelative:prjcrud\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84B181B2-0924-4D89-95F0-B5BB2792C1C0}|prjCRUD\\prjCRUD.csproj|c:\\users\\hjoao\\desktop\\trabalhoscsharp\\prjcrud\\prjcrud\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84B181B2-0924-4D89-95F0-B5BB2792C1C0}|prjCRUD\\prjCRUD.csproj|solutionrelative:prjcrud\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,13 +28,26 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCRUD\\prjCRUD\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCRUD\\prjCRUD\\Form1.cs",
               "RelativeDocumentMoniker": "prjCRUD\\Form1.cs",
-              "ToolTip": "C:\\Users\\hjoao\\Desktop\\TrabalhosC#\\prjCRUD\\prjCRUD\\Form1.cs [Projeto]",
-              "RelativeToolTip": "prjCRUD\\Form1.cs [Projeto]",
+              "ToolTip": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCRUD\\prjCRUD\\Form1.cs [Projeto]*",
+              "RelativeToolTip": "prjCRUD\\Form1.cs [Projeto]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T22:40:53.97Z",
+              "WhenOpened": "2025-06-07T00:29:37.855Z",
               "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCRUD\\prjCRUD\\Form1.cs",
+              "RelativeDocumentMoniker": "prjCRUD\\Form1.cs",
+              "ToolTip": "C:\\Users\\hjoao\\Desktop\\TrabalhosCSharp\\prjCRUD\\prjCRUD\\Form1.cs*",
+              "RelativeToolTip": "prjCRUD\\Form1.cs*",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwCsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T22:55:46.255Z",
+              "EditorCaption": ""
             }
           ]
         }
